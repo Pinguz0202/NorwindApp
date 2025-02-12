@@ -1,0 +1,54 @@
+﻿<Window x:Class="NorwindApp.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NorwindApp"
+        mc:Ignorable="d"
+        Title="Login" Height="550" Width="900"
+        WindowStyle="None" AllowsTransparency="True"
+        Background="Transparent" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <!-- Fondo principal con bordes redondeados -->
+        <Border Background="{StaticResource PrimaryBrush}" CornerRadius="15" Padding="20" Width="900" Height="550">
+            <Grid>
+                <!-- Botones de Cerrar y Minimizar -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,10,0">
+                    <!-- Botón Minimizar -->
+                    <Button Style="{StaticResource RoundButtonStyle}" Click="Minimize_Click" Margin="0,0,10,0"> <!-- Margen derecho de 10 -->
+                        <TextBlock Text="-" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+                    </Button>
+
+                    <!-- Botón Cerrar -->
+                    <Button Style="{StaticResource RoundButtonStyle}" Click="Close_Click">
+                        <TextBlock Text="X" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"/>
+                    </Button>
+                </StackPanel>
+
+                <!-- Contenido principal -->
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="427">
+
+                    <!-- Logo y Nombre -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                        <TextBlock Text="NORTHWIND" Style="{StaticResource TitleTextStyle}" VerticalAlignment="Center"/>
+                        <Image Source="C:\Users\Alvaro\Desktop\Image\database-icon.png" Width="100" Height="100" Margin="10,0,0,0"/>
+                    </StackPanel>
+
+                    <!-- Usuario -->
+                    <TextBlock Text="Usuario" Style="{StaticResource LabelStyle}" Margin="70,10,30,5"/>
+                    <TextBox Style="{StaticResource InputStyle}" Name="UserNameTextBox"/>
+
+                    <!-- Contraseña -->
+                    <TextBlock Text="Contraseña" Style="{StaticResource LabelStyle}" Margin="70,10,30,5"/>
+                    <TextBox Style="{StaticResource InputStyle}" Name="PasswordTextBox"/>
+
+                    <!-- Botón Entrar -->
+                    <Button Content="Entrar" Style="{StaticResource ButtonStyle}" Click="BtnEntrar_Click" Margin="0,20,0,0" Foreground="Black"/>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+
+</Window>

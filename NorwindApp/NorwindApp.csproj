@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Exit.png" />
+    <None Remove="Image\database-icon.png" />
+    <None Remove="Image\Exit.png" />
+    <None Remove="Image\Group 10.png" />
+    <None Remove="Image\Group 11.png" />
+    <None Remove="Image\Group 12.png" />
+    <None Remove="Image\Group 5.png" />
+    <None Remove="Image\Group 6.png" />
+    <None Remove="Image\Group 7.png" />
+    <None Remove="Image\Group 8.png" />
+    <None Remove="Image\Group 9.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="MySql.Data" Version="9.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Exit.png" />
+    <Resource Include="Image\database-icon.png" />
+    <Resource Include="Image\Exit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Group 10.png" />
+    <Resource Include="Image\Group 11.png" />
+    <Resource Include="Image\Group 12.png" />
+    <Resource Include="Image\Group 5.png" />
+    <Resource Include="Image\Group 6.png" />
+    <Resource Include="Image\Group 7.png" />
+    <Resource Include="Image\Group 8.png" />
+    <Resource Include="Image\Group 9.png" />
+  </ItemGroup>
+
+</Project>
