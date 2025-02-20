@@ -11,7 +11,6 @@ namespace NorwindApp
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
         // Navegar a la pantalla de inicio
@@ -44,7 +43,7 @@ namespace NorwindApp
             WindowState = WindowState.Minimized;
         }
 
-        // Cerrar la aplicación
+        // Cerrar completamente la aplicación (Botón X)
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -59,25 +58,37 @@ namespace NorwindApp
             Application.Current.Shutdown(); // Cierra la aplicación
         }
 
-        // Cerrar la aplicación y volver al login
-        private void CloseApp(object sender, RoutedEventArgs e)
+        // Cerrar la conexión y volver al login (Botón Exit)
+        private void GoToLogin(object sender, RoutedEventArgs e)
         {
-                try
-                {
-                    // Cerrar la conexión con la base de datos
-                    DatabaseHelper.CerrarConexion();
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex);
-                }
+            try
+            {
+                DatabaseHelper.CerrarConexion(); // Cerrar conexión antes de volver al login
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
 
-                // Abrir la ventana de login
-                Login loginVentana = new Login();
-                loginVentana.Show(); // Mostrar la ventana de login
+            // Verificar si LoginWindow existe
+            Login login = new Login();
+            login.Show();
 
-                // Cerrar la ventana principal (MainWindow)
-                // this.Close();
+            // Cerrar la ventana actual
+            this.Close();
+        }
+
+        // Manejo del evento de cierre de ventana (Closing)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            try
+            {
+                DatabaseHelper.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
 
         // Manejo para mover la ventana sin bordes
