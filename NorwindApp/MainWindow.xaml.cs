@@ -47,7 +47,16 @@ namespace NorwindApp
         // Cerrar la aplicación
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            CloseApplication();
+            try
+            {
+                DatabaseHelper.CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+            Application.Current.Shutdown(); // Cierra la aplicación
         }
 
         // Cerrar la aplicación y volver al login
@@ -78,27 +87,6 @@ namespace NorwindApp
             {
                 DragMove();
             }
-        }
-
-        // Evento que se ejecuta al intentar cerrar la ventana
-        private void OnWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            CloseApplication();
-        }
-
-        // Cerrar la aplicación
-        private void CloseApplication()
-        {
-            try
-            {
-                DatabaseHelper.CerrarConexion();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-
-            Application.Current.Shutdown(); // Cierra la aplicación
         }
     }
 }
